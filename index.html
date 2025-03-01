@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Loader CSS Animation Project - 11</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root{
+            --duration: 2s;
+            --transform-origin: -80px;
+            --ballSize: 20px;
+            --containerWidth: 180px;
+            --gap: calc((var(--containerWidth) - var(--ballSize)*5)/4);
+            --moveBall: calc(-1*(var(--ballSize) + var(--gap)));
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #000;
+            }
+            .container{
+                display: flex;
+                width: var(--containerWidth);
+                justify-content: space-between;
+            }
+            .container .ball{
+                width: var(--ballSize);
+                height: var(--ballSize);
+                border-radius: 50%;
+            }
+            .container .ball:nth-child(1){
+                background-color: red;
+                animation: move var(--duration) linear infinite alternate;
+            }
+            @keyframes move {
+                0%{
+                    transform: translateX(0);
+                }
+                100%{
+                    transform: translateX(calc(var(--containerWidth) - var(--ballSize)));
+                }
+            }
+            
+            .container .ball:nth-child(2){
+                background-color: orange;
+                animation: ball2 var(--duration) linear infinite alternate;
+
+            }
+            @keyframes ball2 {
+                0%{
+                    transform-origin: var(--transform-origin);
+                    transform: translateX(0) rotate(0deg);
+                }
+                25%, 100%{
+                    transform-origin: center;
+                    transform: translateX(var(--moveBall)) rotate(-90deg);
+                }
+                
+            }
+            .container .ball:nth-child(3){
+                background-color: skyblue;
+                animation: ball3 var(--duration) linear infinite alternate;
+            }
+            @keyframes ball3 {
+                0%, 25%{
+                    transform-origin: var(--transform-origin);
+                    transform: translateX(0) rotate(0deg);
+                }
+                50%, 100%{
+                    transform-origin: center;
+                    transform: translateX(var(--moveBall)) rotate(-90deg);
+                }
+                
+            }
+            .container .ball:nth-child(4){
+                background-color: lime;
+                animation: ball4 var(--duration) linear infinite alternate;
+            }
+            @keyframes ball4 {
+                0%, 50%{
+                    transform-origin: var(--transform-origin);
+                    transform: translateX(0) rotate(0deg);
+                }
+                75%, 100%{
+                    transform-origin: center;
+                    transform: translateX(var(--moveBall)) rotate(-90deg);
+                }
+                
+            }
+            .container .ball:nth-child(5){
+                background-color: yellow;
+                animation: ball5 var(--duration) linear infinite alternate;
+            }
+            @keyframes ball5 {
+                0%, 75%{
+                    transform-origin: var(--transform-origin);
+                    transform: translateX(0) rotate(0deg);
+                }
+                 100%{
+                    transform-origin: center;
+                    transform: translateX(var(--moveBall)) rotate(-90deg);
+                }
+                
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+        <div class="ball"></div>
+    </div>
+</body>
+</html>
